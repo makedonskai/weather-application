@@ -16,8 +16,127 @@
   </head>
   <body>
     <div class="container">
-      <a href="" class="btn btn-primary">Click me</a>
+      <div class="weather-app">
+        <form class="search-form" id="search-form">
+          <div class="row">
+            <div class="col-6">
+              <input
+                type="search"
+                placeholder="City name"
+                autofocus="on"
+                class="form-control city-name shadow-sm border-3"
+                id="city-name-input"
+              />
+            </div>
+            <div class="col-3">
+              <input
+                type="submit"
+                value="Search"
+                class="form-control btn btn-primary shadow-sm"
+              />
+            </div>
+            <div class="col-3">
+              <button class="current-button" id="current-button">
+                Current
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <h1>Kyiv</h1>
+
+        <div class="row">
+          <div class="col-7">
+            <h2 id="current-day-time">Sunday 06:00</h2>
+
+            <i
+              class="fa-solid fa-cloud-sun cloud-sun-icon current-temperature-icon"
+            ></i>
+
+            <span class="current-temperature" id="current-temperature">
+              3
+            </span>
+
+            <span class="units">
+              <a href="#" id="celsius-link">°C</a>/<a
+                href="#"
+                id="fahrenheit-link"
+                >°F</a
+              >
+            </span>
+
+            <div class="current-range">-4°+3°</div>
+          </div>
+
+          <div class="col-5">
+            <ul class="current-indicators">
+              <li id="description">Sun-Clouds</li>
+              <br />
+              <li id="humidity">Humidity - 73%</li>
+              <br />
+              <li id="wind">Wind - 18 km/h from North-West</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-2">
+            <h4>Mon</h4>
+            <br />
+            <i class="fa-solid fa-cloud-sun cloud-sun-icon"></i>
+            <br />
+            <br />
+            <h5>-3°+5°</h5>
+          </div>
+
+          <div class="col-2">
+            <h4>Tue</h4>
+            <br />
+            <i class="fa-solid fa-cloud cloud-icon"></i>
+            <br />
+            <br />
+            <h5>-1°+3°</h5>
+          </div>
+
+          <div class="col-2">
+            <h4>Wed</h4>
+            <br />
+            <i class="fa-solid fa-cloud-meatball snow-icon"></i>
+            <br />
+            <br />
+            <h5>-3° +1°</h5>
+          </div>
+
+          <div class="col-2">
+            <h4>Thu</h4>
+            <br />
+            <i class="fa-solid fa-cloud-meatball snow-icon"></i>
+            <br />
+            <br />
+            <h5>-4° +1°</h5>
+          </div>
+
+          <div class="col-2">
+            <h4>Fri</h4>
+            <br />
+            <i class="fa-solid fa-cloud-sun cloud-sun-icon"></i>
+            <br />
+            <br />
+            <h5>-3° +2°</h5>
+          </div>
+
+          <div class="col-2">
+            <h4>Sat</h4>
+            <br />
+            <i class="fa-regular fa-sun sun-icon"></i>
+            <br />
+            <br />
+            <h5>+1° +4°</h5>
+          </div>
+        </div>
+      </div>
     </div>
+
     <script src="src/app.js"></script>
   </body>
 </html>
