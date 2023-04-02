@@ -31,6 +31,7 @@ li {
   font-weight: 100;
   height: 19px;
   text-align: left;
+  text-transform: capitalize;
 }
 .weather-temperature i {
   margin-right: 10px;
