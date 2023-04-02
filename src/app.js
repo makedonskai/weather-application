@@ -71,13 +71,28 @@ let dateElement = document.querySelector("#current-day-time");
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
 
+celsiusTemperature = response.data.main.temp;
+
 function convertToFahrenheit(event) {
   event.preventDefault();
-  let celsiusTemperature = response.data.main.temp;
   let temperatureElement = document.querySelector("#current-temperature");
-  let tempa = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(tempa);
+
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
+}
+
+function converttoCelsius(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#current-temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", converttoCelsius);
