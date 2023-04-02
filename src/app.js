@@ -71,28 +71,27 @@ let dateElement = document.querySelector("#current-day-time");
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
 
-celsiusTemperature = response.data.main.temp;
-
-function convertToFahrenheit(event) {
+function showFahrenheit(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#current-temperature");
-
-  celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
-  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
+  celsiusLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#current-temp");
+  let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
 }
 
-function converttoCelsius(event) {
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", showFahrenheit);
+
+function showCelsius(event) {
   event.preventDefault();
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#current-temperature");
+  let temperatureElement = document.querySelector("#current-temp");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", showCelsius);
 
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", converttoCelsius);
+let celsiusTemperature = null;
