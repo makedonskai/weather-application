@@ -27,8 +27,17 @@ function showTemperature(response) {
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", showCityTemperature);
 
-let currentTime = new Date();
 function formatDate(date) {
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  let dayIndex = date.getDay();
   let days = [
     "Sunday",
     "Monday",
@@ -38,14 +47,10 @@ function formatDate(date) {
     "Friday",
     "Saturday",
   ];
-  let currentDay = days[date.getDay()];
-  let currentHours = date.getHours();
-  let currentMinutes = date.getMiutes();
-  let formattedDate = `${currentDay} ${currentHours}:${currentMinutes}`;
-  return formattedDate;
+  let day = days[dayIndex];
+
+  return `${day} ${hours}:${minutes}`;
 }
-
-let featureOne = console.log(formatDate(currentTime));
-
-let currentDateFor = document.querySelector("#current-day-time");
-currentDateFor.innerHTML = featureOne;
+let dateElement = document.querySelector("#current-day-time");
+let currentTime = new Date();
+dateElement.innerHTML = formatDate(currentTime);
