@@ -26,3 +26,26 @@ function showTemperature(response) {
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", showCityTemperature);
+
+let currentTime = new Date();
+function formatDate(date) {
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let currentDay = days[date.getDay()];
+  let currentHours = date.getHours();
+  let currentMinutes = date.getMiutes();
+  let formattedDate = `${currentDay} ${currentHours}:${currentMinutes}`;
+  return formattedDate;
+}
+
+let featureOne = console.log(formatDate(currentTime));
+
+let currentDateFor = document.querySelector("#current-day-time");
+currentDateFor.innerHTML = featureOne;
