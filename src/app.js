@@ -95,3 +95,31 @@ let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", showCelsius);
 
 let celsiusTemperature = null;
+
+function formatDay(timestamp) {
+let date = new Date(timestamp * 1000);
+let day = date.getDay();
+let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+return days[day];
+}
+
+function displayForecast (response){
+    let forecast = response.data.daily;
+    let forecastElement = document.querySelector(#forecast);
+    let days = ["Thu", "Fri", "Sat", "Sun"];
+
+    let forecastHTML = `<div class="row">`;
+    days.forEach(function (forecastDay) {
+        forecastHTML = forecastHTML + 
+        `<div class="col-2">
+                <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+                <div>
+                  <img src="#" alt="Sunny" width="42" />
+                </div>
+                <div class="weather-forecast-temperatures">
+                  <span class="weather-forecast-temperature-max">${forecastDay.temp.max}</span>
+                  <span class="weather-forecast-temperature-min">${forecastDay.temp.min}</span>
+                </div>
+              </div>`
+    }
+}
