@@ -70,3 +70,6 @@ li {
 .weather-forecast-temperatures {
   font-size: 13px;
 }
+.overview {
+  margin-bottom: 20px;
+}
